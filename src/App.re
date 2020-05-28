@@ -4,7 +4,6 @@ let make = () => {
 
   let currentPage =
     switch (url.path) {
-    | [] => <Home />
     | ["search", search] => <Search search />
     | ["user", user] => <User user />
     | _ => <NotFound />

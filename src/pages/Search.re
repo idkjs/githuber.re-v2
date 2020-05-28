@@ -71,7 +71,13 @@ let renderNotFound =
   </div>;
 
 [@react.component]
-let make = (~search) => {
+let make = (~search=?) => {
+  let search =
+    switch (search) {
+    | Some(search) => search
+    | None => ""
+    };
+
   let (data: option(SearchQuery.t), setData) = React.useState(() => None);
 
   // fetch data
